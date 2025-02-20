@@ -8,16 +8,32 @@ class ListviewPage extends StatelessWidget{
   Widget build(BuildContext context) {
    return Scaffold(
      appBar: AppBar(
-       title: Text("ListView Demo"),
+       title: Text("Buttons Demo"),
      ),
      body: ListView(
        children: [
-         ElevatedButton(onPressed: (){
-           print("Click on Elevated Button...");
-           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => InstahomePage(),));
-         }, child: Text("Click"),style: ElevatedButton.styleFrom(backgroundColor: Colors.green,foregroundColor: Colors.white,minimumSize: Size(50, 50)),),
-         TextButton(onPressed: (){}, child: Text("This Is Text Btn")),
-         OutlinedButton(onPressed: (){}, child:Text("This is Outline Btn") )
+          ElevatedButton(onPressed: (){
+            print("Click on Play");
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> InstahomePage()));
+          }, child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Icon(Icons.play_arrow),Text("Play")],),style: ElevatedButton.styleFrom(backgroundColor: Colors.green,foregroundColor: Colors.white,),),
+         OutlinedButton(onPressed: (){}, child: Text("This is Outline Btn")),
+         TextButton(onPressed: (){}, child: Text("Login")),
+         IconButton(onPressed: (){}, icon: Icon(Icons.notifications_active_outlined)),
+
+         InkWell(
+           // onTap: (){
+           //   print("Click on Profile");
+           // },
+           onDoubleTap: (){
+             print("Click on Profile 2 times");
+           },
+           child: CircleAvatar(
+             backgroundColor: Colors.grey,
+             radius: 30,
+           ),
+         ),
        ],
      ),
    );
